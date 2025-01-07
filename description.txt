@@ -1,0 +1,50 @@
+STARTING POINT
+
+1. Generate a random interval, random direction, and random note. Formulate the task and display it on the page.
+
+2. Provide buttons for notes and accidentals. Also, include 'Check Answer' and 'Next Task' buttons.
+
+3. Prepare a section to display the result, showing whether the answer is correct or not.
+
+4. There are 8 difficult cases (tasks) involving augmented seconds and diminished sevenths. These cases require answers that deviate from standard logic. Reload the page to skip these cases.
+
+5. If the user's actions are inconsistent, highlight the required buttons by making them blink.
+
+6. Determine the current workspace where the question mark is located to display the selected note in the correct place.
+
+DISPLAY SELECTED NOTE 
+
+1. Create an array of natural notes. When the user selects a note by clicking a button, determine the index of this note in the array. This index will be needed in the next step if the final note needs to include an accidental.
+
+2. Create an array of accidentals. Also, determine the index of the selected accidental in the array.
+
+3. To combine the selected accidental with the previously selected note, create an altered notes array containing seven inner arrays. Each inner array should represent a series of the same note with different accidentals. The order of accidentals in each inner array must match the order in the accidentals array.
+
+4. Now that you know the index of the natural note and the index of the accidental, use them to find the desired note in the altered notes array and display it in the workspace as the final answer.
+
+STEPS TO DETERMINE THE CORRECT NOTE
+
+1. Determine the number of steps. Extract the number from the short name of the interval by splitting it and retrieving the number at the last index.
+
+2. Clean up a given random note by extracting only the note name. Split it and replace the accidental with an empty string.
+
+3. Determine the top note if the root note is given, or determine the root note if the top note is given. Find the first note's index in the natural notes array, then add or subtract the number of steps, depending on the given random direction and considering cyclicity while counting in the array, to find the second note's index in the array.
+
+4. Define the number of semitones for each interval by creating a semitones object, where the keys are the short names of the intervals and the values are the corresponding numbers of semitones. Then, use the given random short interval name as a key to find the actual number of semitones in this object.
+
+5. To determine the actual starting point, create a twelve-keys object where all possible notes (natural and altered) are given as keys, and the corresponding numbers of keys (piano keys) as their values. Then, use the given random note as a key to find the actual number of piano key.
+
+6. To determine the key number (piano key, one of the twelve)) of the second note (target note), add or subtract (depending on the direction) the current number of semitones to or from the number of the first piano key.
+
+7. Now we know the key number of the target note. Create a twelve-keys array containing twelve inner arrays, where each inner array contains three possible note names (two in the case of the 9th key) corresponding to the piano key. Using the piano key number (second key), determine the appropriate inner array (final search array).
+
+8. To find the final note in this array, split the second note name and extract the first two letters, then join them. Split and extract the first two letters of the notes in the array. By comparing the letters of the target note with the first two letters of the notes in the array, we find the index of the actual target note. Using this index in the array, extract the final note with its accidental.
+
+CHECK ANSWER
+
+Pressing the 'Check Answer' button compares the selected note with the final note and displays the result.
+
+NEXT TASK BUTTON
+
+Press the 'Next Task' button to get a new task. 
+

@@ -1,0 +1,286 @@
+/* GENERAL SELECTORS */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+/* TASK SECTION */
+#task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.7em;
+}
+#random-interval {
+  color: rgb(2, 171, 201);
+  margin-left: 10px;
+}
+#random-direction-and-note {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#random-direction,
+#random-note {
+  color: orangered;
+  margin: 0 10px;
+}
+
+/* DISPLAY SECTION */
+#root-interval-top {
+  width: 40%;
+  height: 60px;
+  font-size: 1.5em;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#root,
+#top {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.8em;
+  color: orangered;
+  text-align: center;
+}
+#interval {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.8em;
+  color: rgb(2, 171, 201);
+  text-align: center;
+}
+
+/* SELECT NOTE */
+#select-right-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#select-note {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.note-accidental-btn {
+  width: 70px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.note-accidental-btn:hover {
+  background-color: orangered;
+  color: white;
+  border: none;
+  transition-duration: 300ms;
+}
+
+/* SELECT ACCIDENTAL */
+#select-accidental {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#double-sharp {
+  font-size: 1.5em;
+  padding-top: 7px;
+}
+
+/* CHECK ANSWER BUTTONS */
+#check-answer-btn {
+  margin-top: 30px;
+  font-size: 1em;
+  width: 200px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#check-answer-btn:hover {
+  background-color: rgb(2, 171, 201);
+  color: white;
+  border: none;
+  transition-duration: 300ms;
+}
+
+/* RESULT SECTION */
+#result {
+  width: 300px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+  font-size: 1.5em;
+}
+.green-result {
+  color: green;
+}
+.red-result {
+  color: red;
+}
+
+/* NEXT TASK BUTTON */
+#next-task-btn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1em;
+  width: 250px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#next-task-btn:hover {
+  background-color: rgb(2, 171, 201);
+  color: white;
+  border: none;
+  transition-duration: 300ms;
+}
+
+/* blinking effect */
+.blinking {
+  animation: blink 0.4s ease-in-out 2;
+}
+
+@keyframes blink {
+  50% {
+      background-color: orangered;
+  }
+}
+
+/* Responsive Design */
+/* horizontal screen */
+@media (max-width: 768px) {
+  /* general selectors */
+  #container {
+    height: 100%;
+  }
+  /* task section */
+  #task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+  }
+  /* display section */
+  #root-interval-top {
+    width: 70%;
+    height: 40px;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px auto;
+  }
+  #root,
+  #top {
+    width: 40%;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  #interval {
+    width: 20%;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  /* select note */
+  #select-note {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-row {
+    margin: 10px auto;
+  }
+}
+
+/* vertical screen */
+@media (max-width: 480px) {
+  /* general selectors */
+  #container {
+    width: 90%;
+  }
+  /* task section */
+  #task {
+    font-size: 1.5em;
+    margin: 70px auto 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #build {
+    margin-bottom: 3px;
+  }
+  /* display section */
+  #root-interval-top {
+    margin: 30px auto;
+  }
+  #root,
+  #top {
+    font-size: 1em;
+  }
+  #interval {
+    font-size: 1em;
+  }
+  /* select note */
+  #select-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-accidental-btn {
+    width: 50px;
+    height: 30px;
+    font-size: 0.8em;
+  }
+  /* select accidental */
+  #double-sharp {
+    font-size: 1.2em;
+    padding-top: 3px;
+  }
+  /* check answer buttons */
+  #check-answer-btn {
+    margin-top: 30px;
+    font-size: 0.8em;
+    width: 150px;
+    height: 30px;
+  }
+  /* result section */
+  #next-task-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 0.8em;
+    width: 200px;
+    height: 30px;
+  }
+}
