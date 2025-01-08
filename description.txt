@@ -34,7 +34,7 @@ STEPS TO DETERMINE THE CORRECT NOTE
 
 5. To determine the actual starting point, create a twelve-keys object where all possible notes (natural and altered) are given as keys, and the corresponding numbers of keys (piano keys) as their values. Then, use the given random note as a key to find the actual number of piano key.
 
-6. To determine the key number (piano key, one of the twelve)) of the second note (target note), add or subtract (depending on the direction) the current number of semitones to or from the number of the first piano key.
+6. To determine the key number (piano key, one of the twelve) of the second note (target note), add or subtract (depending on the direction) the current number of semitones to or from the number of the first piano key.
 
 7. Now we know the key number of the target note. Create a twelve-keys array containing twelve inner arrays, where each inner array contains three possible note names (two in the case of the 9th key) corresponding to the piano key. Using the piano key number (second key), determine the appropriate inner array (final search array).
 

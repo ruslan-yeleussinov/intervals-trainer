@@ -94,15 +94,6 @@ function blinkNotesAndAccidentals() {
   });
 }
 
-// blink check answer button if next task button is clicked before the answer is checked
-function blinkCheckAnswerBtn() {
-  const checkAnswerBtn = document.querySelector('#check-answer-btn');
-  checkAnswerBtn.classList.add('blinking');
-  checkAnswerBtn.addEventListener('animationend', () => {
-    checkAnswerBtn.classList.remove('blinking');
-  }, { once: true });
-}
-
 // SELECT NOTE AND ACCIDENTAL
 console.log("\n// CALCULATE RIGHT ANSWER\n\n");
 
@@ -146,12 +137,12 @@ selectAccidentalDiv.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
     selectedAccidental = event.target.innerHTML;
     selectedAccidentalIndex = accidentalsArr.indexOf(selectedAccidental);
-    selectNoteSound.play();
     if (workSpace.innerHTML === "?") {
       blinkNotes();
       selectedNote = "?";
     } else {
       selectedNote = alteredNotesArr[selectedNoteIndex][selectedAccidentalIndex];
+      selectNoteSound.play();
     }
   }
   workSpace.innerHTML = selectedNote;
@@ -359,17 +350,13 @@ checkAnswerButton.addEventListener("click", () => {
     console.log("Selected note:", selectedNote);
     console.log("Final note:", finalNote);
     console.log("Result: Correct!");
-    result.classList.add("green-result");
-    result.classList.remove("red-result"); 
     checkAnswerSound.play(); 
   } else if (selectedNote !== finalNote) {
-    result.innerHTML = "не правильно";
+    result.innerHTML = "НЕПРАВИЛЬНО";
     console.log("\n// CHECK ANSWER\n\n");
     console.log("Selected note:", selectedNote);
     console.log("Final note:", finalNote);
     console.log("Result: Incorrect!");
-    result.classList.add("red-result");
-    result.classList.remove("green-result");
     checkAnswerSound.play();
   }
 });
@@ -377,10 +364,8 @@ checkAnswerButton.addEventListener("click", () => {
 // NEXT TASK BUTTON
 const nextTaskButton = document.querySelector("#next-task-btn");
 nextTaskButton.addEventListener("click", () => {
-  if (workSpace.innerHTML === "?") {
+  if (workSpace.innerHTML === "?" || result.innerHTML === "") {
     blinkNotesAndAccidentals();
-  } else if (workSpace.innerHTML !== "?" && result.innerHTML === "") {
-    blinkCheckAnswerBtn();
   } else {
     window.location.reload();
   }

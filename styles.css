@@ -1,8 +1,17 @@
 /* GENERAL SELECTORS */
+@font-face {
+  font-family: 'Bravura';
+  src: url('fonts/Bravura.otf') format('opentype');
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-image: url(images/board.jpg);  
+  background-size: cover; /* Adjust the size to cover the entire background */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Keep the background fixed during scrolling */
 }
 #container {
   width: 100%;
@@ -19,12 +28,14 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 70px;
   text-align: center;
   font-size: 1.7em;
+  color: white;
 }
 #random-interval {
   color: rgb(2, 171, 201);
+  /* color: rgb(226, 92, 14); */
   margin-left: 10px;
 }
 #random-direction-and-note {
@@ -35,7 +46,7 @@ body {
 }
 #random-direction,
 #random-note {
-  color: orangered;
+  color: rgb(2, 171, 201);
   margin: 0 10px;
 }
 
@@ -48,6 +59,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: rgb(2, 171, 201);
 }
 #root,
 #top {
@@ -57,8 +69,8 @@ body {
   align-items: center;
   justify-content: space-around;
   font-size: 1.8em;
-  color: orangered;
   text-align: center;
+  color: rgb(2, 171, 201);
 }
 #interval {
   width: 30%;
@@ -67,8 +79,8 @@ body {
   align-items: center;
   justify-content: space-around;
   font-size: 1.8em;
-  color: rgb(2, 171, 201);
   text-align: center;
+  color: white;
 }
 
 /* SELECT NOTE */
@@ -83,17 +95,27 @@ body {
   align-items: center;
   justify-content: center;
 }
+.note-btn {
+  font-size: 1em;
+}
+.accidental-btn {
+  font-family: 'Bravura', Arial, sans-serif;
+  font-size: 1.7em;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
 .note-accidental-btn {
   width: 70px;
   height: 40px;
-  background-color: transparent;
+  background-color: white;
   border-radius: 5px;
-  font-size: 1em;
   margin-right: 10px;
   cursor: pointer;
 }
 .note-accidental-btn:hover {
-  background-color: orangered;
+  background-color: rgb(2, 171, 201);
   color: white;
   border: none;
   transition-duration: 300ms;
@@ -106,10 +128,6 @@ body {
   flex-direction: row;
   align-items: center;
 }
-#double-sharp {
-  font-size: 1.5em;
-  padding-top: 7px;
-}
 
 /* CHECK ANSWER BUTTONS */
 #check-answer-btn {
@@ -117,13 +135,14 @@ body {
   font-size: 1em;
   width: 200px;
   height: 40px;
-  background-color: transparent;
+  background-color: orangered;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 #check-answer-btn:hover {
-  background-color: rgb(2, 171, 201);
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   transition-duration: 300ms;
 }
@@ -139,11 +158,10 @@ body {
   margin-top: 30px;
   font-size: 1.5em;
 }
-.green-result {
-  color: green;
-}
-.red-result {
-  color: red;
+#result {
+  color: white;
+  font-size: 2em;
+  font-family: Arial, sans-serif;
 }
 
 /* NEXT TASK BUTTON */
@@ -153,13 +171,14 @@ body {
   font-size: 1em;
   width: 250px;
   height: 40px;
-  background-color: transparent;
+  background-color: rgb(2, 171, 201);
+  color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 #next-task-btn:hover {
-  background-color: rgb(2, 171, 201);
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   transition-duration: 300ms;
 }
@@ -262,11 +281,6 @@ body {
     width: 50px;
     height: 30px;
     font-size: 0.8em;
-  }
-  /* select accidental */
-  #double-sharp {
-    font-size: 1.2em;
-    padding-top: 3px;
   }
   /* check answer buttons */
   #check-answer-btn {
