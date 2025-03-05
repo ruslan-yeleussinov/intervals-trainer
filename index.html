@@ -3,48 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/home-page.css">
   <title>Тренажёр интервалов</title>
 </head>
 <body>
-  <!-- TASK SECTION that is generated in script.js file -->
-  <div id="container"></div>
+  <div id="container">
+    <h1 id="intervals-trainer-title">Тренажёр интервалов</h1>
 
-  <!-- SELECT NOTE -->
-  <div id="select-right-note">
-    <div id="select-note">
-      <div class="note-row">
-        <button class="button note-btn note-accidental-btn do-btn">ДО</button>
-        <button class="button note-btn note-accidental-btn re-btn">РЕ</button>
-        <button class="button note-btn note-accidental-btn mi-btn">МИ</button>
-        <button class="button note-btn note-accidental-btn fa-btn">ФА</button>
-      </div>
-      <div class="note-row">
-        <button class="button note-btn note-accidental-btn sol-btn">СОЛЬ</button>
-        <button class="button note-btn note-accidental-btn la-btn">ЛЯ</button>
-        <button class="button note-btn note-accidental-btn si-btn">СИ</button>
-      </div>
+    <div class="build-determine-div" id="build-interval-div">
+      <p id="build-interval-p">Постройте интервал от заданной ноты</p>
+      <div id="build-interval-buttons" class="two-buttons-div">
+        <a href="build-interval-trainer-menu.html"><button id="build-interval-trainer-btn" class="btn">Тренажёр</button></a>
+        <button id="build-interval-game-btn" class="btn inactive">Игра</button>
+      </div> 
     </div>
-
-    <!-- SELECT ACCIDENTAL -->
-    <div id="select-accidental">
-      <button class="button accidental-btn note-accidental-btn">♭</button>
-      <button class="button accidental-btn note-accidental-btn">𝄫</button>
-      <button class="button accidental-btn note-accidental-btn">♯</button>
-      <button id="double-sharp" class="button accidental-btn note-accidental-btn">𝄪</button>
-      <!-- <button id="double-sharp" class="button accidental-btn note-accidental-btn"><img id="double-sharp-img" src="double-sharp.png"></button> -->
+    
+    <div class="build-determine-div" id="determine-interval-div">
+      <p id="determine-interval-p">Определите интервал по заданным нотам</p>
+      <div id="determine-interval-buttons" class="two-buttons-div">
+        <button id="determine-interval-trainer-btn" class="btn inactive">Тренажёр</button>
+        <button id="determine-interval-game-btn" class="btn inactive">Игра</button>
+      </div> 
     </div>
-
-    <!-- CHECK ANSWER BUTTON -->
-    <button id="check-answer-btn">ПРОВЕРИТЬ ОТВЕТ</button>
-
-    <!-- RESULT -->
-    <div id="result"></div>
-
-    <!-- NEXT TASK BUTTON -->
-    <button id="next-task-btn">СЛЕДУЮЩИЙ ИНТЕРВАЛ</button>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'Bravura';
+  src: url('/fonts/Bravura.otf') format('opentype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url(../images/board.jpg);  
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#container {
+  width: 100%;
+  margin: 10px auto 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+}
+
+.btn {
+  padding: 3px 7px;
+  margin: 5px 10px;
+  font-size: 0.6em;
+  text-align: center;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(2, 171, 201);
+  color: white;
+  transition-duration: 300ms;
+}
+
+.selected {
+  background-color: rgb(2, 171, 201);
+  color: white;
+}
+
+#all-intervals-div {
+  margin-top: 20px;
+}
+
+#start-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-btn {
+  padding: 5px 20px;
+  margin: 30px 20px 0;
+  font-size: 0.8em;
+  text-align: center;
+  color: white;
+  background-color: orangered;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-all-and-start-btn {
+  padding: 5px 20px;
+  margin: 30px 20px 0;
+  font-size: 0.8em;
+  text-align: center;
+  color: white;
+  background-color: orangered;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* blinking effect */
+.blinking {
+  animation: blink 0.4s ease-in-out 2;
+}
+
+@keyframes blink {
+  50% {
+      background-color: orangered;
+  }
+}
+
+/* Responsive Design */
+/* horizontal screen */
+@media (max-width: 768px) {
+  /* general selectors */
+  #container {
+    height: 100%;
+  }
+}
+
+p {
+  font-size: 20px;
+}
+
+.btn {
+  padding: 8px 20px;
+  margin: 8px 8px;
+  font-size: 0.5em;
+}
+
+.start-btn {
+  margin: 30px 20px;
+  padding: 10px 40px;
+}
+
+#intervals-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#select-notes-p {
+  text-align: center;
+}
+
+#notes-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* vertical screen */
+@media (max-width: 480px) {
+  .btn {
+    padding: 4px 10px;
+    margin: 8px 8px;
+    font-size: 0.55em;
+  }
+  
+  .start-btn {
+    margin: 30px 20px;
+    padding: 10px 40px;
+  }
+}

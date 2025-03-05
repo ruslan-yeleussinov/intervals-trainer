@@ -2,31 +2,50 @@ console.log("// STARTING POINT\n\n");
 
 // INTERVALS
 const intervalsArr = ["ЧИСТУЮ ПРИМУ", "МАЛУЮ СЕКУНДУ", "БОЛЬШУЮ СЕКУНДУ", "УВЕЛИЧЕННУЮ СЕКУНДУ", "МАЛУЮ ТЕРЦИЮ", "БОЛЬШУЮ ТЕРЦИЮ", "ЧИСТУЮ КВАРТУ", "УВЕЛИЧЕННУЮ КВАРТУ", "УМЕНЬШЁННУЮ КВИНТУ", "ЧИСТУЮ КВИНТУ", "МАЛУЮ СЕКСТУ", "БОЛЬШУЮ СЕКСТУ", "УМЕНЬШЁННУЮ СЕПТИМУ", "МАЛУЮ СЕПТИМУ", "БОЛЬШУЮ СЕПТИМУ", "ЧИСТУЮ ОКТАВУ"];
-const randomIntervalIndex = Math.floor(Math.random() * 16);
+
+// get selected notes from local storage
+const storedIntervals = localStorage.getItem("selectedIntervals");
+const selectedIntervalsArr = storedIntervals ? JSON.parse(storedIntervals) : [];
+
+const randomIntervalIndex = Math.floor(Math.random() * selectedIntervalsArr.length);
 // random interval
-const randomInterval = intervalsArr[randomIntervalIndex];
+const randomInterval = selectedIntervalsArr[randomIntervalIndex];
 console.log("random interval:", randomInterval);
+// determine the indexes of the selected intervals in the intervalsArr
+const selectedIndexes = selectedIntervalsArr.map(interval => intervalsArr.indexOf(interval));
 
 // SHORT INTERVALS
 const intervalsArrShort = ["ч1", "м2", "б2", "ув2", "м3", "б3", "ч4", "ув4", "ум5", "ч5", "м6", "б6", "ум7", "м7", "б7", "ч8"];
+// find selected short intervals
+const selectedShortIntervals = selectedIndexes.map(index => intervalsArrShort[index]);
 // random short interval
-const randomShortInterval = intervalsArrShort[randomIntervalIndex];
+const randomShortInterval = selectedShortIntervals[randomIntervalIndex];
 console.log("random short interval:", randomShortInterval);
 
 // DIRECTIONS
 const directionsArr = ["вверх", "вниз"];
-const randomDirectionIndex = Math.floor(Math.random() * 2);
+
+// get selected directions from local storage
+const storedDirections = localStorage.getItem("selectedDirections");
+const selectedDirectionsArr = storedDirections ? JSON.parse(storedDirections) : [];
+
+const randomDirectionIndex = Math.floor(Math.random() * selectedDirectionsArr.length);
 // random direction
-const randomDirection = directionsArr[randomDirectionIndex];
+const randomDirection = selectedDirectionsArr[randomDirectionIndex];
 console.log("random direction:", randomDirection);
 // root is defined if the direction is "вверх" (rootIsDefined) and top is defined if the direction is "вниз" (!rootIsDefined)
 const rootIsDefined = randomDirection === "вверх" ? true : false;
 
 // NOTES
-const randomNotesArr = ["ДО♭", "ДО", "ДО♯", "РЕ♭", "РЕ", "РЕ♯", "МИ♭", "МИ", "ФА♭", "МИ♯", "ФА", "ФА♯", "СОЛЬ♭", "СОЛЬ", "СОЛЬ♯", "ЛЯ♭", "ЛЯ", "ЛЯ♯", "СИ♭", "СИ", "СИ♯",]
-const randomNoteIndex = Math.floor(Math.random() * 21);
+const notesArr = ["ДО♭", "ДО", "ДО♯", "РЕ♭", "РЕ", "РЕ♯", "МИ♭", "МИ", "ФА♭", "МИ♯", "ФА", "ФА♯", "СОЛЬ♭", "СОЛЬ", "СОЛЬ♯", "ЛЯ♭", "ЛЯ", "ЛЯ♯", "СИ♭", "СИ", "СИ♯"];
+
+// get selected notes from local storage
+const storedNotes = localStorage.getItem("selectedNotes");
+const selectedNotesArr = storedNotes ? JSON.parse(storedNotes) : [];
+
+const randomNoteIndex = Math.floor(Math.random() * selectedNotesArr.length);
 // random note
-const randomNote = randomNotesArr[randomNoteIndex];
+const randomNote = selectedNotesArr[randomNoteIndex];
 console.log("random note:", randomNote);
 
 // GENERATE HTML
@@ -77,7 +96,7 @@ function blinkNotes() {
       button.classList.add('blinking');
       // Remove the class after the animation is complete
       button.addEventListener('animationend', () => {
-          button.classList.remove('blinking');
+        button.classList.remove('blinking');
       }, { once: true });
   });
 }
@@ -156,8 +175,8 @@ const splittedInterval = randomShortInterval.split("");
 const numberOfSteps = Number(splittedInterval[splittedInterval.length - 1]);
 
 // determine the second note name extracting only the note name from the given note, removing the accidental sign
-const splittedNote = randomNote.split("");
-const cleanedNote = (splittedNote.map(char => char.replace(/[♯♭𝄪𝄫]$/, ""))).join("");
+// const splittedNote = randomNote.split("");
+const cleanedNote = randomNote.replace(/[♯♭𝄪𝄫]/g, "");
 console.log("cleaned note (without accidental):", cleanedNote);
 
 let secondNoteName = "";

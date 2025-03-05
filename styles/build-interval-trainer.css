@@ -1,23 +1,22 @@
 /* GENERAL SELECTORS */
 @font-face {
   font-family: 'Bravura';
-  src: url('fonts/Bravura.otf') format('opentype');
+  src: url('/fonts/Bravura.otf') format('opentype');
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url(images/board.jpg);  
-  background-size: cover; /* Adjust the size to cover the entire background */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-attachment: fixed; /* Keep the background fixed during scrolling */
+  background-image: url(../images/board.jpg);  
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #container {
   width: 100%;
   margin: 0 auto;
   font-family: Arial, sans-serif;
-  color: #333;
   box-sizing: border-box;
   border: 1px solid transparent;
 }
@@ -278,23 +277,23 @@ body {
     justify-content: center;
   }
   .note-accidental-btn {
-    width: 50px;
-    height: 30px;
-    font-size: 0.8em;
+    width: 60px;
+    height: 35px;
+    font-size: 1em;
   }
   /* check answer buttons */
   #check-answer-btn {
-    margin-top: 30px;
-    font-size: 0.8em;
-    width: 150px;
-    height: 30px;
+    margin-top: 45px;
+    font-size: 1em;
+    width: 190px;
+    height: 40px;
   }
   /* result section */
   #next-task-btn {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 0.8em;
-    width: 200px;
-    height: 30px;
+    font-size: 1em;
+    width: 250px;
+    height: 40px;
   }
 }
